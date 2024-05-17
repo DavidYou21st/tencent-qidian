@@ -4,6 +4,9 @@
     "keywords": ["Tencent", "Qidian", "SDK"],
     "license": "MIT",
     "type": "project",
+    "require": {
+        "php": "^7.1.8 || ^8.0"
+    },
     "autoload": {
         "psr-4": {"TencentQidian\\App\\": "src/"}
     },
