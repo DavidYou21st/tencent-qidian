@@ -1,5 +1,8 @@
 # 企点开放平台 SDK
 
+## 安装
+composer require davidyou/tencent-qidian
+
 ## 使用方法
 
 ```
