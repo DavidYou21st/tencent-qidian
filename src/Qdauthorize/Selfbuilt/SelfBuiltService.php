@@ -35,11 +35,11 @@ class SelfBuiltService
         $response = QdHttpUtils::httpGet($this->url);
         $response = json_decode($response, true);
         return array(
-            'code'    => $response['errcode'] ? $response['errcode'] : 0,
-            'message' => $response['errmsg'] ? $response['errmsg'] : '请求成功',
-            'data'    => array(
-                'access_token' => $response['access_token'],
-                'expires_in'             => $response['expires_in'],
+            'code' => $response['errcode'] ?? 0,
+            'message' => $response['errmsg'] ?? '请求成功',
+            'data' => array(
+                'access_token' => $response['access_token'] ?? '',
+                'expires_in' => $response['expires_in'] ?? 0,
             )
         );
     }
