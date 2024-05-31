@@ -63,14 +63,14 @@ class Prpcrypt
 	 */
 	public function decrypt($encrypted, $appid)
 	{
-
+        $iv = substr($this->key, 0, 16);
 		try {
 			if (function_exists('openssl_decrypt')) {
 				//使用BASE64对需要解密的字符串进行解码
 				$encrypted_decode = base64_decode($encrypted);
-				$decrypted = openssl_decrypt($encrypted_decode, 'AES-256-CBC', $this->key, OPENSSL_RAW_DATA | OPENSSL_ZERO_PADDING, $this->iv);
+				$decrypted = openssl_decrypt($encrypted_decode, 'AES-256-CBC', $this->key, OPENSSL_RAW_DATA | OPENSSL_ZERO_PADDING, $iv);
 			} else {
-				$decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $this->key, base64_decode($encrypted), MCRYPT_MODE_CBC, $this->iv);
+				$decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $this->key, base64_decode($encrypted), MCRYPT_MODE_CBC, $iv);
 			}
 		} catch (Exception $e) {
 			return array(ErrorCode::$DecryptAESError, null);
