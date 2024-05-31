@@ -101,7 +101,7 @@ class QDMsgCrypt
 	 *
 	 * @return int 成功0，失败返回对应的错误码
 	 */
-	public function decryptMsg($msgSignature, $timestamp = null, $nonce, $postData, &$msg)
+	public function decryptMsg($msgSignature, $timestamp, $nonce, $postData, &$msg)
 	{
 		if (strlen($this->encodingAesKey) != 43) {
 			return ErrorCode::$IllegalAesKey;
