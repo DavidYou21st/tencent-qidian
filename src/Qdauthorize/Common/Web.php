@@ -37,7 +37,6 @@ class Web
         $qdhttp = new QdHttpUtils();
         $response = $qdhttp->httpGet($this->url);
         $response = json_decode($response, true);
-        var_dump($response);exit();
         return array(
             'expires_in' => $response['expires_in'] ?? 0,
             'access_token' => $response['access_token'] ?? '',

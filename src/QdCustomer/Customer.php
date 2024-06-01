@@ -48,9 +48,6 @@ class Customer
             'c_qw_openid' => $c_qw_openid,
             'sessionType' => $session_type,
         ));
-        $apiParams = json_encode($apiParams);
-        var_dump($url);
-        exit();
         $response = QdHttpUtils::httpPost($url, $apiParams);
         $response = json_decode($response, true);
         return array(
